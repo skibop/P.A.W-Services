@@ -110,14 +110,9 @@ const ContactForm = () => {
           }
 
           .contact-info h2 {
-            font-size: 1.875rem;
+            font-size: 1.885rem;
             line-height: 2.25rem;
             font-weight: 700;
-          }
-
-          .contact-info p, .contact-info ul {
-            margin-bottom: 1rem;
-            color: rgb(107, 114, 128);
           }
 
           .form-container {
