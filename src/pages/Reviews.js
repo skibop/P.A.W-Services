@@ -26,7 +26,7 @@ const Reviews = () => {
         "comment": "As a beginner, I felt overwhelmed learning tennis, but Aryan's guidance helped me build confidence on the court. Now, I’m competing in local matches and loving it!"
       },
       {
-        "name": "Megha Koduganti",
+        "name": "Meghana Koduganti",
         "rating": 5,
         "comment": "Aryan transformed my tennis game! His focus on proper form and technique has made playing tennis with my friends so much more enjoyable."
       },
