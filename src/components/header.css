@@ -1,0 +1,102 @@
+/* Header Container */
+.header-container {
+  padding: 0 1rem;
+  height: 64px; /* h-16 in Tailwind */
+  display: flex;
+  align-items: center;
+  background-color: #006400; /* Dark green background */
+  position: relative; /* Needed for positioning the logo */
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.icon {
+  height: 24px; /* h-6 */
+  width: 24px; /* w-6 */
+  color: white;
+}
+
+.logo-text {
+  margin-left: 0.5rem; /* ml-2 */
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: bold;
+  color: white;
+}
+
+/* Navigation Links */
+.nav-links {
+  margin-left: auto; /* ml-auto */
+  display: flex;
+  gap: 1rem; /* gap-4 */
+}
+
+/* Individual Link Styling */
+.nav-link {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effects */
+.nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px; /* underline-offset-4 */
+  color: rgba(255, 255, 255, 0.8); /* Slightly lighter on hover */
+}
+
+/* Active Link State (optional) */
+.nav-link.active {
+  text-decoration: underline;
+  font-weight: bold; /* Make active link bold */
+}
+
+/* MEDIA QUERY FOR MOBILE VIEW */
+@media (max-width: 768px) {
+  /* Reduce logo size for smaller screens */
+  .logo-text {
+    font-size: 1.25rem; /* text-xl */
+  }
+
+  .icon {
+    height: 20px;
+    width: 20px;
+  }
+
+  /* Stack the navigation links vertically */
+  .nav-links {
+    display: block; /* Stack links vertically */
+    position: absolute;
+    top: 64px; /* Below the header */
+    right: 1rem;
+    background-color: #006400; /* Same background as the header */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: none; /* Hide initially, will display on burger menu click */
+  }
+
+  /* Show links vertically on smaller screens */
+  .nav-link {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 1rem; /* Slightly larger for mobile */
+  }
+
+  /* Optional: Add a burger menu for mobile */
+  .burger-menu {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+/* Show nav-links when burger menu is active (JS toggled) */
+.nav-links.active {
+  display: block; /* Show nav-links when burger menu is clicked */
+}
