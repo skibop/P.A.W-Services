@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Calendar, ChevronRight, Coins } from 'lucide-react';
-import backgroundImage from '../assets/background.jpg'; // Adjust the path as per your project structure
+import backgroundImage from './assets/background.jpg'; // Adjust the path as per your project structure
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
