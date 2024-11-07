@@ -1,69 +1,86 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
 
-const Reviews = () => {
-  const [showReviews, setShowReviews] = useState(false);
-
+const ReviewsPage = () => {
   const reviews = [
     {
-      name: "Ashley Klien",
+      name: "Masood Siddiqui",
       rating: 5,
-      comment: "KTennis Club is amazing! Aryan is top-notch and is patient with me."
+      comment: "P.A.W Services did an outstanding job cleaning my gutters. Their attention to detail and thoroughness were impressive. I couldn't be happier with the results!"
     },
     {
-      name: "Anthony Gillespie",
-      rating: 4,
-      comment: "Great community overall, I've improved my game significantly since joining."
+      name: "Jaelyn Mitchell",
+      rating: 5,
+      comment: "I'm amazed at how efficiently P.A.W Services cleared out all the junk and scraps from my backyard, front yard, and garage. They did an exceptional job and left everything spotless!"
     },
     {
-      name: "Robert Jacobs",
+      name: "Faheem Ahmed",
       rating: 5,
-      comment: "Aryan's skills help teach my son to play tennis incredibly well, extremely satisified!"
-    },
-      {
-        "name": "Jairam Patel",
-        "rating": 4,
-        "comment": "As a beginner, I felt overwhelmed learning tennis, but Aryan's guidance helped me build confidence on the court. Now, I’m competing in local matches and loving it!"
-      },
-      {
-        "name": "Meghana Koduganti",
-        "rating": 5,
-        "comment": "Aryan transformed my tennis game! His focus on proper form and technique has made playing tennis with my friends so much more enjoyable."
-      },
-      {
-        "name": "Aarit Kumar",
-        "rating": 5,
-        "comment": "Aryan’s personalized coaching has been a game-changer for me. My skills have improved tremendously, and now I feel more confident than ever on the court."
-      } 
+      comment: "P.A.W Services made my move to a new house so much easier. They carefully collected all my furniture from the old home, transported it safely, and delivered everything to my new place. Their service was top-notch!"
+    }
   ];
 
-  useEffect(() => {
-    // Set a timeout to show reviews after the component mounts
-    const timer = setTimeout(() => {
-      setShowReviews(true);
-    }, 180); // Adjust the delay as needed
-
-    return () => clearTimeout(timer); // Cleanup on unmount
-  }, []);
-
   return (
-    <div className="container mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-8 text-[#006400]">Member Reviews</h1>
-      <div className={`grid gap-6 md:grid-cols-2 lg:grid-cols-3 transition-opacity duration-700 ${showReviews ? 'opacity-100' : 'opacity-0'}`}>
-        {reviews.map((review, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-500 hover:scale-105">
-            <div className="flex items-center mb-2">
-              {[...Array(review.rating)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+    <div className="flex flex-col min-h-screen bg-white">
+      <header className="bg-red-600 text-white p-4">
+        <nav className="container mx-auto flex justify-between items-center">
+          <Link to="/" className="text-2xl font-bold">P.A.W Services</Link>
+          <div className="space-x-4">
+            <Link to="/" className="hover:underline">Home</Link>
+            <Link to="/about" className="hover:underline">About</Link>
+            <Link to="/services" className="hover:underline">Services</Link>
+            <Link to="/reviews" className="hover:underline">Reviews</Link>
+            <Link to="/team" className="hover:underline">Team</Link>
+            <Link to="/contact" className="hover:underline">Contact</Link>
+          </div>
+        </nav>
+      </header>
+
+      <main className="flex-grow">
+        <section className="bg-red-500 text-white py-20">
+          <div className="container mx-auto text-center px-4">
+            <h1 className="text-4xl font-bold mb-4">Customer Reviews</h1>
+            <p className="text-xl mb-8">See what our satisfied customers have to say about P.A.W Services</p>
+          </div>
+        </section>
+
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {reviews.map((review, index) => (
+                <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                  <div className="flex items-center mb-4">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="mb-4 italic text-gray-600">"{review.comment}"</p>
+                  <p className="font-semibold text-red-600">- {review.name}</p>
+                </div>
               ))}
             </div>
-            <p className="mb-2 italic">"{review.comment}"</p>
-            <p className="font-semibold">- {review.name}</p>
           </div>
-        ))}
-      </div>
+        </section>
+
+        <section className="bg-red-50 py-16">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-8 text-red-600">Ready to Experience Our Services?</h2>
+            <p className="text-lg mb-8">Join our satisfied customers and let us help you with your next project!</p>
+            <Link to="/contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-red-600 text-white hover:bg-red-700 h-12 px-6">
+              Get a Quote
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-red-600 text-white py-8">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2024 P.A.W Services. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default Reviews;
+export default ReviewsPage;

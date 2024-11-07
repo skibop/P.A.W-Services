@@ -1,90 +1,93 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Calendar, ChevronRight, Coins } from 'lucide-react';
-import backgroundImage from '../Ktennis/assets/background.jpg'; // Adjust the path as per your project structure
+import { Truck, Box, Trash2,  Users, Phone, ChevronRight, MapPin } from 'lucide-react';
 
-const Home = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  // Trigger animation on component mount
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100); // Adjust delay here if needed
-
-    return () => clearTimeout(timer); // Cleanup timer
-  }, []);
-
+const HomePage = () => {
   return (
-    <div>
-      {/* Hero Section with Background Image, Blur, and Transparency */}
-      <section
-        className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
-        {/* Background Overlay with Blur and Transparency */}
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <div className="flex flex-col min-h-screen bg-white">
+      <header className="bg-red-600 text-white p-4">
+        <nav className="container mx-auto flex justify-between items-center">
+          <Link to="/" className="text-2xl font-bold">P.A.W Services</Link>
+          <div className="space-x-4">
+            <Link to="/" className="hover:underline">Home</Link>
+            <Link to="/about" className="hover:underline">About</Link>
+            <Link to="/services" className="hover:underline">Services</Link>
+            <Link to="/reviews" className="hover:underline">Reviews</Link>
+            <Link to="/team" className="hover:underline">Team</Link>
+            <Link to="/contact" className="hover:underline">Contact</Link>
+          </div>
+        </nav>
+      </header>
 
-        {/* Content inside the hero section */}
-        <div className="relative container px-4 md:px-6 z-10">
-          <div className={`flex flex-col items-center space-y-4 text-center ${isVisible ? 'fade-in' : ''}`}>
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white">
-                Welcome to KTennis Coaching
-              </h1>
-              <p className="mx-auto max-w-[700px] text-zinc-200 md:text-xl">
-                Experience the excitement of tennis with personalized coaching in your local community. Join the growing number of passionate players and take your game to the next level today.
-              </p>
-            </div>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-white text-[#006400] hover:bg-zinc-200 h-10 py-2 px-4"
-            >
-              Book Now
+      <main className="flex-grow">
+        <section className="bg-red-500 text-white py-20">
+          <div className="container mx-auto text-center px-4">
+            <h1 className="text-4xl font-bold mb-4">Welcome to P.A.W Services</h1>
+            <p className="text-xl mb-8">Professional, Affordable, and Wonderful Moving and Junk Removal Services</p>
+            <Link to="/contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-white text-red-600 hover:bg-gray-100 h-10 py-2 px-4">
+              Get a Quote
               <ChevronRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* What We Offer Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
-        <div className="container px-4 md:px-6">
-          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#006400] mb-8 ${isVisible ? 'fade-in' : ''}`}>
-            What We Offer
-          </h2>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {[
-              {
-                icon: Coins,
-                title: 'Affordability',
-                description: 'Tailored lesson plans designed to fit your budget without compromising on quality, ensuring noticeable progress.',
-              },
-              {
-                icon: Users,
-                title: 'Credibility',
-                description: 'A well-regarded tennis coach, trusted by the South Brunswick community, with proven results in player development.',
-              },
-              {
-                icon: Calendar,
-                title: 'Training Programs',
-                description: 'Comprehensive, personalized coaching for all ages and skill levels, with programs that help every player reach their full potential.',
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className={`flex flex-col items-center p-6 bg-white rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-[#f0f0f0]`}
-              >
-                <item.icon className="h-12 w-12 text-[#008000] mb-4" />
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-zinc-700 text-center">{item.description}</p>
-              </div>
-            ))}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 text-red-600">Our Services</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { title: "Moving Services", icon: Truck, description: "Efficient and careful relocation of your belongings" },
+                { title: "Junk Removal", icon: Trash2, description: "Quick and eco-friendly disposal of unwanted items" },
+                { title: "Storage Solutions", icon: Box, description: "Secure storage options for your short or long-term needs" },
+              ].map((service, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col items-center">
+                  <service.icon className="w-12 h-12 text-red-500 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                  <p className="text-center text-gray-600">{service.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
+        </section>
+
+        <section className="bg-red-50 py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 text-red-600">Why Choose P.A.W Services?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { title: "Local Expertise", description: "Deep knowledge of the tri-state area", icon: MapPin },
+                { title: "Experienced Team", description: "Skilled movers from South Brunswick", icon: Users },
+                { title: "Comprehensive Services", description: "From packing to unpacking, we do it all", icon: Truck },
+                { title: "Customer-Centric Approach", description: "Your satisfaction is our top priority", icon: Phone },
+              ].map((feature, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                  <feature.icon className="w-12 h-12 text-red-500 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16">
+          <div className="container mx-auto text-center px-4">
+            <h2 className="text-3xl font-bold mb-8 text-red-600">Ready for a Stress-Free Move?</h2>
+            <p className="text-xl mb-8">Let us handle the heavy lifting. Contact P.A.W Services today!</p>
+            <Link to="/contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-red-600 text-white hover:bg-red-700 h-12 px-6">
+              Get Started
+            </Link>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-red-600 text-white py-8">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2024 P.A.W Services. All rights reserved.</p>
         </div>
-      </section>
+      </footer>
     </div>
   );
 };
 
-export default Home;
+export default HomePage;
