@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import { Phone, MapPin, Clock } from 'lucide-react';
+import { Phone, MapPin, Clock, Menu, X } from 'lucide-react';
 
-const ContactForm = () => {
+const ContactPage = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,8 +11,11 @@ const ContactForm = () => {
     message: "",
     time: "",
   });
-
   const [availableTimes, setAvailableTimes] = useState([]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -38,9 +42,9 @@ const ContactForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        access_key: "246fef84-d50e-43bd-9bc1-dbbc9b9c75f4",
-        subject: "New Contact Form Submission from P.A.W Services",
-        from_name: "P.A.W Services",
+        access_key: "ad7f8d03-8fd6-450d-a237-59a529c29ad0",
+        subject: "New Contact Form Submission from P.A.W. Services",
+        from_name: "P.A.W. Services",
         ...formData,
       }),
     });
@@ -62,28 +66,41 @@ const ContactForm = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-     <header className="bg-green-700 text-white p-4">
-  <nav className="container mx-auto flex justify-between items-center">
-    <Link to="/" className="flex items-center">
-      <img src="/logo.png" alt="P.A.W Services Logo" className="h-10 mr-2" />
-      <span className="text-2xl font-bold">P.A.W Services</span>
-    </Link>
-    <div className="space-x-4">
-      <Link to="/" className="hover:underline">Home</Link>
-      <Link to="/about" className="hover:underline">About</Link>
-      <Link to="/services" className="hover:underline">Services</Link>
-      <Link to="/reviews" className="hover:underline">Reviews</Link>
-      <Link to="/team" className="hover:underline">Team</Link>
-      <Link to="/contact" className="hover:underline">Contact</Link>
-    </div>
-  </nav>
-</header>
+      <header className="bg-green-700 text-white p-4">
+        <nav className="container mx-auto flex justify-between items-center">
+          <Link to="/" className="flex items-center">
+            <img src="/logo.png" alt="P.A.W. Services Logo" className="h-10 mr-2" />
+            <span className="text-2xl font-bold">P.A.W. Services</span>
+          </Link>
+          <div className="hidden md:flex space-x-4">
+            <Link to="/" className="hover:underline">Home</Link>
+            <Link to="/about" className="hover:underline">About</Link>
+            <Link to="/services" className="hover:underline">Services</Link>
+            <Link to="/reviews" className="hover:underline">Reviews</Link>
+            <Link to="/team" className="hover:underline">Team</Link>
+            <Link to="/contact" className="hover:underline">Contact</Link>
+          </div>
+          <button className="md:hidden" onClick={toggleMenu}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+        {isMenuOpen && (
+          <div className="md:hidden mt-4">
+            <Link to="/" className="block py-2 hover:bg-green-600">Home</Link>
+            <Link to="/about" className="block py-2 hover:bg-green-600">About</Link>
+            <Link to="/services" className="block py-2 hover:bg-green-600">Services</Link>
+            <Link to="/reviews" className="block py-2 hover:bg-green-600">Reviews</Link>
+            <Link to="/team" className="block py-2 hover:bg-green-600">Team</Link>
+            <Link to="/contact" className="block py-2 hover:bg-green-600">Contact</Link>
+          </div>
+        )}
+      </header>
 
       <main className="flex-grow">
         <section className="bg-amber-500 text-white py-20">
           <div className="container mx-auto text-center px-4">
             <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-            <p className="text-xl mb-8">Get in touch with P.A.W Services for all your needs</p>
+            <p className="text-xl mb-8">Get in touch with P.A.W. Services for all your needs</p>
           </div>
         </section>
 
@@ -220,11 +237,11 @@ const ContactForm = () => {
 
       <footer className="bg-amber-600 text-white py-8">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 P.A.W Services. All rights reserved.</p>
+          <p>&copy; 2024 P.A.W. Services. All rights reserved.</p>
         </div>
       </footer>
     </div>
   );
 };
 
-export default ContactForm;
+export default ContactPage;

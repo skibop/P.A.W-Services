@@ -1,30 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Users, MapPin, Phone, Clock, Shield, Target } from 'lucide-react';
+import { Truck, Users, MapPin, Phone, Clock, Shield, Target, Menu, X } from 'lucide-react';
 
 const AboutPage = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
-       <header className="bg-green-700 text-white p-4">
-  <nav className="container mx-auto flex justify-between items-center">
-    <Link to="/" className="flex items-center">
-      <img src="/logo.png" alt="P.A.W Services Logo" className="h-10 mr-2" />
-      <span className="text-2xl font-bold">P.A.W Services</span>
-    </Link>
-    <div className="space-x-4">
-      <Link to="/" className="hover:underline">Home</Link>
-      <Link to="/about" className="hover:underline">About</Link>
-      <Link to="/services" className="hover:underline">Services</Link>
-      <Link to="/reviews" className="hover:underline">Reviews</Link>
-      <Link to="/team" className="hover:underline">Team</Link>
-      <Link to="/contact" className="hover:underline">Contact</Link>
-    </div>
-  </nav>
-</header>
+      <header className="bg-green-700 text-white p-4">
+        <nav className="container mx-auto flex justify-between items-center">
+          <Link to="/" className="flex items-center">
+            <img src="/logo.png" alt="P.A.W. Services Logo" className="h-10 mr-2" />
+            <span className="text-2xl font-bold">P.A.W. Services</span>
+          </Link>
+          <div className="hidden md:flex space-x-4">
+            <Link to="/" className="hover:underline">Home</Link>
+            <Link to="/about" className="hover:underline">About</Link>
+            <Link to="/services" className="hover:underline">Services</Link>
+            <Link to="/reviews" className="hover:underline">Reviews</Link>
+            <Link to="/team" className="hover:underline">Team</Link>
+            <Link to="/contact" className="hover:underline">Contact</Link>
+          </div>
+          <button className="md:hidden" onClick={toggleMenu}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+        {isMenuOpen && (
+          <div className="md:hidden mt-4">
+            <Link to="/" className="block py-2 hover:bg-green-600">Home</Link>
+            <Link to="/about" className="block py-2 hover:bg-green-600">About</Link>
+            <Link to="/services" className="block py-2 hover:bg-green-600">Services</Link>
+            <Link to="/reviews" className="block py-2 hover:bg-green-600">Reviews</Link>
+            <Link to="/team" className="block py-2 hover:bg-green-600">Team</Link>
+            <Link to="/contact" className="block py-2 hover:bg-green-600">Contact</Link>
+          </div>
+        )}
+      </header>
+
       <main className="flex-grow">
         <section className="bg-amber-500 text-white py-20">
           <div className="container mx-auto text-center px-4">
-            <h1 className="text-4xl font-bold mb-4">About P.A.W Services</h1>
+            <h1 className="text-4xl font-bold mb-4">About P.A.W. Services</h1>
             <p className="text-xl mb-8">Your Trusted Moving Partner in the Tri-State Area</p>
           </div>
         </section>
@@ -35,7 +55,7 @@ const AboutPage = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-center">
                 <p className="text-lg mb-6">
-                  P.A.W Services was founded by a group of dedicated individuals from South Brunswick, New Jersey. Our passion for helping people and our commitment to excellence led us to establish a moving service that caters to the diverse needs of the tri-state area.
+                  P.A.W. Services was founded by a group of dedicated individuals from South Brunswick, New Jersey. Our passion for helping people and our commitment to excellence led us to establish a moving service that caters to the diverse needs of the tri-state area.
                 </p>
                 <p className="text-lg mb-6">
                   With years of experience and a deep understanding of the local communities, we've grown from a small team to a trusted name in moving services. Our roots in South Brunswick have given us a strong foundation, and we've expanded our reach to serve customers throughout New Jersey, New York, and Connecticut.
@@ -72,10 +92,10 @@ const AboutPage = () => {
             <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
               <Target className="w-16 h-16 text-amber-500 mx-auto mb-4" />
               <p className="text-lg mb-6">
-                Our mission at P.A.W Services is to provide exceptional moving experiences for residents and businesses in the tri-state area. We strive to combine our local knowledge, professional expertise, and personalized care to ensure every move is smooth, efficient, and stress-free.
+                Our mission at P.A.W. Services is to provide exceptional moving experiences for residents and businesses in the tri-state area. We strive to combine our local knowledge, professional expertise, and personalized care to ensure every move is smooth, efficient, and stress-free.
               </p>
               <p className="text-lg mb-8">
-                At P.A.W Services, we believe that moving should be an exciting new chapter in your life, not a stressful experience. That's why we're committed to providing Professional, Affordable, and Wonderful moving services that make your transition as smooth as possible.
+                At P.A.W. Services, we believe that moving should be an exciting new chapter in your life, not a stressful experience. That's why we're committed to providing Professional, Affordable, and Wonderful moving services that make your transition as smooth as possible.
               </p>
               <Link to="/contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-amber-500 text-white hover:bg-amber-600 h-12 px-6">
                 Get in Touch
@@ -106,7 +126,7 @@ const AboutPage = () => {
 
       <footer className="bg-amber-600 text-white py-8">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 P.A.W Services. All rights reserved.</p>
+          <p>&copy; 2024 P.A.W. Services. All rights reserved.</p>
         </div>
       </footer>
     </div>
