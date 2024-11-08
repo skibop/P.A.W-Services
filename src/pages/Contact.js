@@ -96,11 +96,7 @@ const ContactForm = () => {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <MapPin className="w-6 h-6 text-amber-500 mr-4" />
-                    <p>Scenic Parks Tennis Courts, Dayton, New Jersey</p>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="w-6 h-6 text-amber-500 mr-4" />
-                    <p>121.aryanb@gmail.com</p>
+                    <p>13 Setter Place, Kendall Park, New Jersey, 08824</p>
                   </div>
                   <div className="flex items-center">
                     <Phone className="w-6 h-6 text-amber-500 mr-4" />
@@ -121,7 +117,7 @@ const ContactForm = () => {
                 <div className="mt-8">
                   <iframe
                     title="Scenic Parks Tennis Courts Map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.319555394664!2d-74.5165844!3d40.3773956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3c7b227c0223f%3A0x529317ce4577f632!2s35%20Scenic%20Dr%2C%20Dayton%2C%20NJ%2008810%2C%20USA!5e0!3m2!1sen!2sus!4v1696787486319!5m2!1sen!2sus"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2871.1008245681346!2d-74.54935252419268!3d40.42662397143792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3c2e2aec7d6fb%3A0x6208a6c895bf7dac!2s13%20Setter%20Pl%2C%20Kendall%20Park%2C%20NJ%2008824!5e1!3m2!1sen!2sus!4v1731101055157!5m2!1sen!2sus"
                     className="w-full h-64 border-0 rounded-lg"
                     allowFullScreen=""
                     loading="lazy"
@@ -167,7 +163,7 @@ const ContactForm = () => {
                       id="phone"
                       name="phone"
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-                      placeholder="(732) - 429 - 0817"
+                      placeholder="(111) - 222 - 3333"
                       type="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
