@@ -62,22 +62,25 @@ const ContactForm = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <header className="bg-red-600 text-white p-4">
-        <nav className="container mx-auto flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold">P.A.W Services</Link>
-          <div className="space-x-4">
-            <Link to="/" className="hover:underline">Home</Link>
-            <Link to="/about" className="hover:underline">About</Link>
-            <Link to="/services" className="hover:underline">Services</Link>
-            <Link to="/reviews" className="hover:underline">Reviews</Link>
-            <Link to="/team" className="hover:underline">Team</Link>
-            <Link to="/contact" className="hover:underline">Contact</Link>
-          </div>
-        </nav>
-      </header>
+     <header className="bg-green-700 text-white p-4">
+  <nav className="container mx-auto flex justify-between items-center">
+    <Link to="/" className="flex items-center">
+      <img src="/logo.png" alt="P.A.W Services Logo" className="h-10 mr-2" />
+      <span className="text-2xl font-bold">P.A.W Services</span>
+    </Link>
+    <div className="space-x-4">
+      <Link to="/" className="hover:underline">Home</Link>
+      <Link to="/about" className="hover:underline">About</Link>
+      <Link to="/services" className="hover:underline">Services</Link>
+      <Link to="/reviews" className="hover:underline">Reviews</Link>
+      <Link to="/team" className="hover:underline">Team</Link>
+      <Link to="/contact" className="hover:underline">Contact</Link>
+    </div>
+  </nav>
+</header>
 
       <main className="flex-grow">
-        <section className="bg-red-500 text-white py-20">
+        <section className="bg-amber-500 text-white py-20">
           <div className="container mx-auto text-center px-4">
             <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
             <p className="text-xl mb-8">Get in touch with P.A.W Services for all your needs</p>
@@ -89,26 +92,26 @@ const ContactForm = () => {
             <div className="flex flex-col md:flex-row gap-12">
               {/* Left Side: Contact Info */}
               <div className="md:w-2/5">
-                <h2 className="text-3xl font-bold text-red-600 mb-6">Contact Information</h2>
+                <h2 className="text-3xl font-bold text-amber-500 mb-6">Contact Information</h2>
                 <div className="space-y-4">
                   <div className="flex items-center">
-                    <MapPin className="w-6 h-6 text-red-500 mr-4" />
+                    <MapPin className="w-6 h-6 text-amber-500 mr-4" />
                     <p>Scenic Parks Tennis Courts, Dayton, New Jersey</p>
                   </div>
                   <div className="flex items-center">
-                    <Mail className="w-6 h-6 text-red-500 mr-4" />
+                    <Mail className="w-6 h-6 text-amber-500 mr-4" />
                     <p>121.aryanb@gmail.com</p>
                   </div>
                   <div className="flex items-center">
-                    <Phone className="w-6 h-6 text-red-500 mr-4" />
-                    <p>(732) - 513 - 0017</p>
+                    <Phone className="w-6 h-6 text-amber-500 mr-4" />
+                    <p>(610) - 478 - 5432</p>
                   </div>
                   <div className="flex items-start">
-                    <Clock className="w-6 h-6 text-red-500 mr-4 mt-1" />
+                    <Clock className="w-6 h-6 text-amber-500 mr-4 mt-1" />
                     <div>
                       <p className="font-semibold">Hours:</p>
-                      <p>Mon - Fri: 4:00 PM - 8:00 PM</p>
-                      <p>Saturday: 10:00 AM - 8:00 PM</p>
+                      <p>Mon - Fri: 2:00 PM - 9:00 PM</p>
+                      <p>Saturday: 11:00 AM - 9:00 PM</p>
                       <p>Sunday: Closed</p>
                     </div>
                   </div>
@@ -128,14 +131,14 @@ const ContactForm = () => {
 
               {/* Right Side: Contact Form */}
               <div className="md:w-3/5">
-                <h2 className="text-3xl font-bold text-red-600 mb-6">Send Us a Message</h2>
+                <h2 className="text-3xl font-bold text-amber-500 mb-6">Send Us a Message</h2>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                     <input
                       id="name"
                       name="name"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                       placeholder="Your name"
                       type="text"
                       value={formData.name}
@@ -149,7 +152,7 @@ const ContactForm = () => {
                     <input
                       id="email"
                       name="email"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                       placeholder="Your email"
                       type="email"
                       value={formData.email}
@@ -163,7 +166,7 @@ const ContactForm = () => {
                     <input
                       id="phone"
                       name="phone"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                       placeholder="(732) - 429 - 0817"
                       type="tel"
                       value={formData.phone}
@@ -178,7 +181,7 @@ const ContactForm = () => {
                       <select
                         id="time"
                         name="time"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                         value={formData.time}
                         onChange={handleTimeChange}
                         required
@@ -198,7 +201,7 @@ const ContactForm = () => {
                     <textarea
                       id="message"
                       name="message"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 min-h-[120px]"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[120px]"
                       placeholder="Additional information"
                       value={formData.message}
                       onChange={handleInputChange}
@@ -208,7 +211,7 @@ const ContactForm = () => {
 
                   <button
                     type="submit"
-                    className="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition duration-300"
+                    className="w-full bg-amber-500 text-white py-2 px-4 rounded-md hover:bg-amber-600 transition duration-300"
                   >
                     Send Message
                   </button>
@@ -219,7 +222,7 @@ const ContactForm = () => {
         </section>
       </main>
 
-      <footer className="bg-red-600 text-white py-8">
+      <footer className="bg-amber-600 text-white py-8">
         <div className="container mx-auto text-center">
           <p>&copy; 2024 P.A.W Services. All rights reserved.</p>
         </div>
