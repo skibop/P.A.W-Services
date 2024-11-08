@@ -1,26 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Box, Trash2, Users, Phone, ChevronRight, MapPin } from 'lucide-react';
+import { Truck, Box, Trash2, Users, Phone, ChevronRight, MapPin, Menu, X } from 'lucide-react';
 
 const HomePage = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <header className="bg-green-700 text-white p-4">
-  <nav className="container mx-auto flex justify-between items-center">
-    <Link to="/" className="flex items-center">
-      <img src="/logo.png" alt="P.A.W Services Logo" className="h-10 mr-2" />
-      <span className="text-2xl font-bold">P.A.W Services</span>
-    </Link>
-    <div className="space-x-4">
-      <Link to="/" className="hover:underline">Home</Link>
-      <Link to="/about" className="hover:underline">About</Link>
-      <Link to="/services" className="hover:underline">Services</Link>
-      <Link to="/reviews" className="hover:underline">Reviews</Link>
-      <Link to="/team" className="hover:underline">Team</Link>
-      <Link to="/contact" className="hover:underline">Contact</Link>
-    </div>
-  </nav>
-</header>
+        <nav className="container mx-auto flex justify-between items-center">
+          <Link to="/" className="flex items-center">
+            <img src="/logo.png" alt="P.A.W Services Logo" className="h-10 mr-2" />
+            <span className="text-2xl font-bold">P.A.W Services</span>
+          </Link>
+          <div className="hidden md:flex space-x-4">
+            <Link to="/" className="hover:underline">Home</Link>
+            <Link to="/about" className="hover:underline">About</Link>
+            <Link to="/services" className="hover:underline">Services</Link>
+            <Link to="/reviews" className="hover:underline">Reviews</Link>
+            <Link to="/team" className="hover:underline">Team</Link>
+            <Link to="/contact" className="hover:underline">Contact</Link>
+          </div>
+          <button className="md:hidden" onClick={toggleMenu}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+        {isMenuOpen && (
+          <div className="md:hidden mt-4">
+            <Link to="/" className="block py-2 hover:bg-green-600">Home</Link>
+            <Link to="/about" className="block py-2 hover:bg-green-600">About</Link>
+            <Link to="/services" className="block py-2 hover:bg-green-600">Services</Link>
+            <Link to="/reviews" className="block py-2 hover:bg-green-600">Reviews</Link>
+            <Link to="/team" className="block py-2 hover:bg-green-600">Team</Link>
+            <Link to="/contact" className="block py-2 hover:bg-green-600">Contact</Link>
+          </div>
+        )}
+      </header>
 
       <main className="flex-grow">
         <section className="bg-amber-500 text-white py-20">
@@ -83,7 +102,6 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Flyer Section */}
         <section className="py-16 bg-white">
           <div className="container mx-auto text-center px-4">
             <h2 className="text-3xl font-bold mb-8 text-amber-500">Check Out Our Flyer</h2>
